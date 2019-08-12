@@ -13,8 +13,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 
 # Include path
-set(INCLUDE_DIRS ${INClUDE_DIRS} $ENV{HOME}/.local/include/tesseract)
-set(INCLUDE_DIRS ${INClUDE_DIRS} $ENV{HOME}/.local/include/leptonica)
 set(INCLUDE_DIRS ${INClUDE_DIRS} $ENV{HOME}/.local/include)
 
 # link_directories(/usr/lib) # in the case of linked directory should be done
@@ -25,10 +23,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 
 # linked to the library
-target_include_directories(${PROJECT_NAME} PRIVATE ${LIBTESSERACT_INCLUDE_DIRS})
-target_include_directories(${PROJECT_NAME} PRIVATE ${LIBLEPTONICA_INCLUDE_DIRS})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE $ENV{HOME}/.local/include)
 
 # linked to the libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE opencv_imgcodecs opencv_core opencv_imgproc opencv_highgui lept tesseract)
+target_link_libraries(${PROJECT_NAME} PRIVATE opencv_imgcodecs opencv_core opencv_imgproc opencv_highgui)
