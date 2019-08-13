@@ -26,4 +26,4 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE $ENV{HOME}/.local/include)
 
 # linked to the libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE opencv_imgcodecs opencv_core opencv_imgproc opencv_highgui)
+target_link_libraries(${PROJECT_NAME} PRIVATE opencv_imgcodecs opencv_core opencv_imgproc opencv_highgui opencv_videoio)
