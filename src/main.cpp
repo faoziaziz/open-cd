@@ -1,17 +1,29 @@
+/**
+ *  Ini merupakan testing untuk membaca file video 
+ *  dengan menggunakan opencv
+ * 
+*/
+
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+
 using namespace std;
 using namespace cv;
 
 int main(int argc, char** argv){
-  Mat img=imread(argv[1], -1);
-  if(img.empty()){
-    cout<<"Kosong : "<<endl;
-    return -1;
+  namedWIndow("Example3 ", WINDOW_AUTOSIZE);
+  cv::VideoCature cap;
+  cap.open(string argv[1]);
+
+  Mat frame;
+  for(;;){
+    cap>>frame;
+    if(frame.empty())break;
+    imshow("exampler", frame);
+    if(waitkey(33)>=0)break;
   }
-  namedWindow("example1", WINDOW_AUTOSIZE);
-  imshow("example1", img);
-  waitKey(0);
-  destroyWindow("example1");
   return 0;
 }
