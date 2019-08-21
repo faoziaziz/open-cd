@@ -1,5 +1,9 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
+
+#include <leptonica/allheaders.h>
+#include <tesseract/baseapi.h>
+
 using namespace std;
 using namespace cv;
 
